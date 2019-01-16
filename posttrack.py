@@ -148,7 +148,7 @@ while 1:
     
     if (isFirstRun == '0'):
         print('#'*16)
-        print("Amount of posts under each tag as of " + str(time.asctime(time.localtime(time.time()))) + ":")
+        print("Amount of posts under each tag posted since start as of " + str(time.asctime(time.localtime(time.time()))) + ":")
         print("#"*16)
         for tag in tags_list:
             if (tag != 'timestamp' and tag != 'timestep'):
