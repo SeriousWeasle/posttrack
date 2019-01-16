@@ -163,4 +163,4 @@ while 1:
         print("")
         print("")
         print("")
-    time.sleep(10)
+    time.sleep(3600)

@@ -1,1 +1,3 @@
 safe,suggestive,questionable,explicit,semi-grimdark,grimdark,grotesque,total,timestamp,timestep
+0, 0, 0, 0, 0, 0, 0, 0, 1547681908.3183773, 85.2065896987915
+0, 0, 0, 0, 0, 0, 0, 0, 1547681918.603463, 10.285085678100586
