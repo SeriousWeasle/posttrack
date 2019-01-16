@@ -85,20 +85,6 @@ for tag in tags_list:
             dcmt.write(tag + "\n"
             "")
 
-writeStartTag = 0
-
-for entry in tags_postamount_formatted:
-    if (writeStartTag == len(tags_postamount_formatted)-1):
-        with open ("output/output_countup.txt", 'a') as dcmt:
-            dcmt.write(str(tags_postamount_formatted[writeStartTag]) + "\n"
-            "")
-    
-    if (writeStartTag < len(tags_postamount_formatted) - 1):
-        with open ("output/output_countup.txt", 'a') as dcmt:
-            dcmt.write(str(tags_postamount_formatted[writeStartTag]) + ", ")
-    
-    writeStartTag = writeStartTag + 1
-    
 #make sure that firstrun is set to true
 with open ("variables/firstrun.txt", 'w') as dcmt:
     dcmt.write("1")

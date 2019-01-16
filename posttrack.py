@@ -66,14 +66,22 @@ while 1:
             with open ("variables/temp/" +  tag + ".txt", 'w') as dcmt:
                 dcmt.write(str(tags_currentamount[tag]))
 
+        #calculate the difference between start of the measurement and now
+        tags_sincestartamount = dict()
+        for tag in tags_list:
+            if (tag == 'timestamp' or tag == 'timestep'):
+                tags_sincestartamount[tag] = float(tags_currentamount[tag])
+            else:
+                tags_sincestartamount[tag] = int(tags_currentamount[tag]) - int(tags_startamount[tag])
+
         #add the found data to the countup
         for tag in tags_list:
             with open("output/output_countup.txt", 'a') as dcmt:
                 if (tag == 'timestep'):
-                    dcmt.write(str(tags_currentamount[tag]) + "\n"
+                    dcmt.write(str(tags_sincestartamount[tag]) + "\n"
                     "")
                 else:
-                    dcmt.write(str(tags_currentamount[tag]) + ", ")
+                    dcmt.write(str(tags_sincestartamount[tag]) + ", ")
     
     #set the isFirstRun to 0 since the first run just happened
     with open ("variables/firstrun.txt", 'w') as dcmt:
@@ -86,15 +94,23 @@ while 1:
         for tag in tags_list:
             with open ("variables/temp/" +  tag + ".txt", 'w') as dcmt:
                 dcmt.write(str(tags_currentamount[tag]))
+        
+        #calculate the difference between start of the measurement and now
+        tags_sincestartamount = dict()
+        for tag in tags_list:
+            if (tag == 'timestamp' or tag == 'timestep'):
+                tags_sincestartamount[tag] = float(tags_currentamount[tag])
+            else:
+                tags_sincestartamount[tag] = int(tags_currentamount[tag]) - int(tags_startamount[tag])
 
         #add the found data to the countup
         for tag in tags_list:
             with open("output/output_countup.txt", 'a') as dcmt:
                 if (tag == 'timestep'):
-                    dcmt.write(str(tags_currentamount[tag]) + "\n"
+                    dcmt.write(str(tags_sincestartamount[tag]) + "\n"
                     "")
                 else:
-                    dcmt.write(str(tags_currentamount[tag]) + ", ")
+                    dcmt.write(str(tags_sincestartamount[tag]) + ", ")
         
         #declare a dict for the difference in tag amounts
         tags_differenceamount = dict()
@@ -121,11 +137,11 @@ while 1:
     #output findings to the terminal in a user readable format:
     if (isFirstRun == '1'):
         print('#'*16)
-        print("Amount of posts under each tag as of " + str(time.asctime(time.localtime(time.time()))) + ":")
+        print("Amount of posts under each tag posted since start as of " + str(time.asctime(time.localtime(time.time()))) + ":")
         print("#"*16)
         for tag in tags_list:
             if (tag != 'timestamp' and tag != 'timestep'):
-                print(str(tag) + ": " + str(tags_currentamount[tag]))
+                print(str(tag) + ": " + str(tags_sincestartamount[tag]))
         print("")
         print("")
         print("")
@@ -136,7 +152,7 @@ while 1:
         print("#"*16)
         for tag in tags_list:
             if (tag != 'timestamp' and tag != 'timestep'):
-                print(str(tag) + ": " + str(tags_currentamount[tag]))
+                print(str(tag) + ": " + str(tags_sincestartamount[tag]))
         print("")
         print('#'*8)
         print("Changes in posts under tag since last count:")
@@ -147,4 +163,4 @@ while 1:
         print("")
         print("")
         print("")
-    time.sleep(3600)
+    time.sleep(10)

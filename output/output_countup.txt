@@ -1,2 +1,1 @@
 safe,suggestive,questionable,explicit,semi-grimdark,grimdark,grotesque,total,timestamp,timestep
-1269436, 99157, 93192, 247985, 21428, 29839, 9532, 1745196, 1547677473.8126423, 0
