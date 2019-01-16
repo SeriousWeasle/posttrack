@@ -106,5 +106,4 @@ with open ("variables/firstrun.txt", 'w') as dcmt:
 print (tags_list)
 print (tags_postamount_formatted)
 print ("Successfully finished setup for postcounter v3.0")
-print (len(tags_postamount_formatted))
 #set the starting amount of posts to calculate the total amount of posts since start. This allows for interrupts and restarts
