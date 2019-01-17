@@ -55,11 +55,11 @@ while 1:
     tags_currentamount[tags_list[7]] = treepagestats.xpath("//span[@class='stat']/text()")[0].replace(",", "")
 
     #add the timestamp to the current data
-    tags_currentamount[tags_list[8]] = time.time()
+    tags_currentamount[tags_list[8]] = float(time.time()) - float(tags_startamount[tags_list[8]])
 
     #if this is the first run, execute the following code block
     if (isFirstRun == '1'):
-        tags_currentamount[tags_list[9]] = float(tags_currentamount[tags_list[8]]) - float(tags_startamount[tags_list[8]])
+        tags_currentamount[tags_list[9]] = float(tags_currentamount[tags_list[8]])
 
         #write current stuff to temp variables folder
         for tag in tags_list:
